@@ -43,7 +43,8 @@ io.on("connection", (socket) => {
     let year = date.getFullYear();
     let mounth = date.getMonth() + 1;
     let day = date.getDate();
-    let hour = date.getHours();
+    let hour = date.getHours() + 2;
+    //console.log(date);
     let minut = date.getMinutes();
     message["time"] =
       hour + ":" + minut + " " + day + "/" + mounth + "/" + year;

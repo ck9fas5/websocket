@@ -23,6 +23,7 @@ document.getElementById("entra").onclick = async () => {
   let result = await userCheck(name_user);
   //console.log(result);
   if (result.result === "ok") {
+    nome_in.classList.remove("is-invalid");
     let text_result = await getMessage();
     console.log(text_result);
     message_area.innerHTML = RenderMassegeList(
@@ -33,6 +34,8 @@ document.getElementById("entra").onclick = async () => {
     message_area.scrollTop = message_area.scrollHeight;
     login_div.classList.add("d-none");
     message_div.classList.remove("d-none");
+  } else {
+    nome_in.classList.add("is-invalid");
   }
 };
 
