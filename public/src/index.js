@@ -32,6 +32,7 @@ document.getElementById("entra").onclick = async () => {
       name_user,
     );
     message_area.scrollTop = message_area.scrollHeight;
+    socket.emit("message", { name: name_user, text: "" });
     login_div.classList.add("d-none");
     message_div.classList.remove("d-none");
   } else {
@@ -40,13 +41,15 @@ document.getElementById("entra").onclick = async () => {
 };
 
 send_btn.onclick = () => {
-  let message = {
-    name: name_user,
-    text: message_input.value,
-  };
-  message_input.value = "";
-  //console.log(message);
-  socket.emit("message", message);
+  if (message_input.value !== "") {
+    let message = {
+      name: name_user,
+      text: message_input.value,
+    };
+    message_input.value = "";
+    //console.log(message);
+    socket.emit("message", message);
+  }
 };
 
 message_input.addEventListener("keydown", (event) => {

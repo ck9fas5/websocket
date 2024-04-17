@@ -39,6 +39,7 @@ io.on("connection", (socket) => {
     console.log("user disconnected");
   });
   socket.on("message", (message) => {
+    console.log(message)
     let date = new Date();
     let year = date.getFullYear();
     let mounth = date.getMonth() + 1;
